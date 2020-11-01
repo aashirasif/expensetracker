@@ -5,7 +5,7 @@ import Balance from './components/Balance';
 import Header from './components/Header';
 import IncomeExpense from './components/IncomeExpense';
 import TransactionList from './components/TransactionList';
-import { TransactionProvider } from './context/GlobalState';
+
 
 
 function App() {

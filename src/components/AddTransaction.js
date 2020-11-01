@@ -1,5 +1,5 @@
 import React,{useState,useContext} from 'react';
-import {transactionContext,TransactionProvider} from '../context/GlobalState';
+import {transactionContext} from '../context/GlobalState';
 
 export default function AddTransaction() {
 
