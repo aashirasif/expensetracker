@@ -42,4 +42,4 @@ jobs:
     
     # Deploy Surge
     - name: Deploy React App to Surge
-      run: surge ./build http://aashir_first.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+      run: surge ./build http://aashir_expensetracker.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
