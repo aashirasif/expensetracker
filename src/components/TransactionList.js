@@ -1,8 +1,8 @@
 import React,{useContext} from 'react';
-import {transactionContext} from '../context/GlobalState';
+import {GlobalContext} from '../context/GlobalState';
 
 export default function TransactionList() {
-    let transaction = useContext(transactionContext);
+    let transaction = useContext(GlobalContext);
     return (
         <div >
             <h4>History</h4>

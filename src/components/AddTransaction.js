@@ -1,11 +1,12 @@
 import React,{useState,useContext} from 'react';
-import {transactionContext} from '../context/GlobalState';
+import {GlobalContext} from '../context/GlobalState';
+
 
 export default function AddTransaction() {
 
     let [newDescription,setDescription] = useState("");
     let [newAmount,setAmount] = useState(0);
-    let {addTransaction} = useContext(transactionContext);
+    const {addTransaction} = useContext(GlobalContext);
 
     const handleAddition = (event) => {
         event.preventDefault();
@@ -13,8 +14,8 @@ export default function AddTransaction() {
             amount : newAmount,
             description : newDescription
         }
-        addTransaction(newTransaction);   
-    }
+        addTransaction(newTransaction);
+    }   
 
     return (
         <div>

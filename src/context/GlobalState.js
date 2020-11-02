@@ -1,31 +1,39 @@
-import React,{createContext,useReducer} from 'react';
+import React , {createContext , useReducer} from "react"
+import Reducer from '../context/Reducer'
 
-const transaction_list = [
-    { amount: 60, description: "Aashir" },
-    { amount: 50, description: "Checking"},
-    { amount: 40, description: "Food"}
+const initialState = [
+    
 ]
 
-export const transactionContext = createContext (transaction_list)
+// Create COntext
+export const GlobalContext = createContext(initialState)
 
-export const TransactionProvider = ({children}) => {
-    const [state,dispatch] = useReducer(TransactionProvider,transaction_list);
+export const GlobalProvider = ({children}) => {
+    const [state , dispatch] = useReducer(Reducer , initialState)
 
-    function addTransaction(tObj){
+    // Actions making call to reducers
+    
+    function deleteTransaction(id){
         dispatch({
-            type: "ADD",
-            payload: {
-                amount : tObj.amount,
-                description : tObj.description
-            }
+            type : 'DELETE_TRANSACTION',
+            payload : id 
         })
     }
-    return (
-        <transactionContext.Provider value={{
-            transaction: state,
+
+    function addTransaction(transaction){
+        dispatch({
+            type : 'ADD_TRANSACTION',
+            payload : transaction
+        })
+    }
+
+    return(
+        <GlobalContext.Provider value={{
+            transactions: state.transactions,
+            deleteTransaction,
             addTransaction
         }}>
             {children}
-        </transactionContext.Provider>
+        </GlobalContext.Provider>
     )
 }
